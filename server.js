@@ -4,9 +4,9 @@ const app = express();
 app.use(express.json());
 
 const VERIFY_TOKEN = "mytoken123";
-const WHATSAPP_TOKEN = "YOUR_WHATSAPP_ACCESS_TOKEN";
-const PHONE_NUMBER_ID = "YOUR_PHONE_NUMBER_ID";
-const CLAUDE_API_KEY = "YOUR_CLAUDE_API_KEY";
+const WHATSAPP_TOKEN = process.env.WHATSAPP_TOKEN;
+const PHONE_NUMBER_ID = process.env.PHONE_NUMBER_ID;
+const CLAUDE_API_KEY = process.env.CLAUDE_API_KEY;
 
 app.get("/webhook", (req, res) => {
   if (req.query["hub.verify_token"] === VERIFY_TOKEN) {
